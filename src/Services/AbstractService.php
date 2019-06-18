@@ -2,7 +2,7 @@
 /**
  * @link      https://github.com/a3gz/simple-locale
  * @copyright Copyright (c) Alejandro Arbiza
- * @license   http://www.roetal.com/license/mit (MIT License)
+ * @license   See included file LICENSE.md
  */
 namespace A3gZ\SimpleLocale\Services;
 
@@ -18,7 +18,7 @@ abstract class AbstractService
     $this->env = (object)$settings['env'][$regionCode];
 
     if (isset($settings['dictionaries'])) {
-      foreach ($settings['dictionaries'] as $name => $f) {
+      foreach ($settings['dictionaries'] as $f) {
         try {
           $d = $f($regionCode);
           if (is_array($d)) {
