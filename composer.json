@@ -15,5 +15,8 @@
     "psr-4": {
       "A3gZ\\SimpleLocale\\": "src"
     }
+  },
+  "scripts": {
+    "test": "phpunit test"
   }
 }

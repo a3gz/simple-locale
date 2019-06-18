@@ -2,7 +2,7 @@
 /**
  * @link      https://github.com/a3gz/simple-locale
  * @copyright Copyright (c) Alejandro Arbiza
- * @license   http://www.roetal.com/license/mit (MIT License)
+ * @license   See included file LICENSE.md
  */
 namespace A3gZ\SimpleLocale\Services;
 
