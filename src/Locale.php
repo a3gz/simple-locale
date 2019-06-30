@@ -24,6 +24,10 @@ class Locale
     return (isset($this->services[$key]) ? $this->services[$key] : null);
   }
 
+  public function getRegionCode() {
+    return $this->regionCode;
+  }
+
   public function parseLocalizedRequest($request) {
     $uri = $request->getUri();
     $path = $uri->getPath();
