@@ -31,6 +31,12 @@ abstract class AbstractService
     }
     return $this;
   }
+
+  public function withEnv($key, $value) {
+    $clone = clone $this;
+    $clone->env->$key = $value;
+    return $clone;
+  }
 }
 
 // EOF
