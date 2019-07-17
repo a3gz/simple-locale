@@ -32,6 +32,13 @@ abstract class AbstractService
     return $this;
   }
 
+  public function getEnv($key) {
+    if (!isset($this->env)) {
+      return null;
+    }
+    return isset($this->env->$key) ? $this->env->$key : null;
+  }
+
   public function withEnv($key, $value) {
     $clone = clone $this;
     $clone->env->$key = $value;
