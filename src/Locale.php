@@ -48,6 +48,12 @@ class Locale
     return call_user_func_array([$this->services['dictionary'], 'translate'], func_get_args() );
   }
 
+  public function withRegionCode($regionCode) {
+    $clone = clone $this;
+    $clone->regionCode = $regionCode;
+    return $clone;
+  }
+
   public function withServices($regionCode = null) {
     $clone = clone $this;
 
