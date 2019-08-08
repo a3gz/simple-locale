@@ -61,6 +61,9 @@ class Locale
     if (!$regionCode) {
       $regionCode = $this->regionCode;
     }
+    if (function_exists('setlocale')) {
+      setlocale(LC_ALL, $regionCode, $regionCode.'_'.strtoupper($regionCode));
+    }
     $clone->services = [
       'currency' => new \A3gZ\SimpleLocale\Services\Currency($settings, $regionCode),
       'dates' => new \A3gZ\SimpleLocale\Services\Dates($settings, $regionCode),
