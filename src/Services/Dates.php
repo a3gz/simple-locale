@@ -9,7 +9,7 @@ namespace A3gZ\SimpleLocale\Services;
 class Dates extends AbstractService
 {
   public function format($time, $format = false) {
-    if ( !$format ) {
+    if (!$format) {
       $format = 'Y/m/d';
     }
 
@@ -20,9 +20,15 @@ class Dates extends AbstractService
     }
 
     if (isset($this->env->$format)) {
-      $formatted = date($this->env->$format, $time);
-    } elseif (is_string($format)) {
-      $formatted = date($format, $time);
+      $format = $this->env->$format;
+    }
+
+    if (is_string($format)) {
+      if (strpos($format, '%') !== false) {
+        $formatted = strftime($format, $time);
+      } else {
+        $formatted = date($format, $time);
+      }
     }
 
     return $formatted;
