@@ -26,6 +26,7 @@ class Dates extends AbstractService
     if (is_string($format)) {
       if (strpos($format, '%') !== false) {
         $formatted = strftime($format, $time);
+        $formatted = iconv('iso-8859-1', 'utf-8', $formatted);
       } else {
         $formatted = date($format, $time);
       }
