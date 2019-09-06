@@ -32,11 +32,11 @@ class Locale
     $uri = $request->getUri();
     $path = $uri->getPath();
     $matches = [];
-    if ( preg_match( "#^(" . implode('|', $codes) . ")\/#", $path, $matches ) ) {
+    if (preg_match("#^\/?(" . implode('|', $this->settings['languages']) . ")\/?#", $path, $matches)) {
       $this->regionCode = $matches[1];
-      $newPath = substr( $path, strlen($matches[0]) );
-      $uri = $uri->withPath( $newPath );
-      $request = $request->withUri( $uri, true );
+      $newPath = substr($path, strlen($matches[0]));
+      $uri = $uri->withPath($newPath);
+      $request = $request->withUri($uri, true);
     }
     return $request;
   }
